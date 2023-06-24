@@ -1,13 +1,13 @@
 name = input('Mandem, welcome to my game! Please state your name?\n')
 if name.lower() == 'mebz':
     print(f'Welcome Agent {name}!')
-    body_count = input('How many times have you gotten laid?\n')
+    body_count = input('How many times have you kissed someone?\n')
     girlfriends = input('How many girlfriends have you had?\n')
     continents = input('How many continents exist on planet earth?\n')
     if int(body_count or int(girlfriends)) > 0:
         print('Stop the cap sir')
     else:
-        print('You are the Jame Bond of losers and you have the same Ls at ISBAT in a week as the number of continents')
+        print('You are the Jame Bond of losers.')
         print('''
     ,a8888a,       ,a8888a,  888888888888  
  ,8P"'  `"Y8,   ,8P"'  `"Y8,        ,8P'  
@@ -28,9 +28,9 @@ else:
             if sun.lower() == 'yes':
                 print('Congragulations, you have reached the core of the sun and you have discovered nuclear fusion')
             else:
-                print('This game is not for woosies and cowards...Game Over')
+                print('This game is not for loosers and cowards...Game Over')
         else:
-            print('You are a dumba**, swimming doesn\'t defy the laws of physics')
+            print('You are dumb, swimming doesn\'t defy the laws of physics')
     else:
         print('Game over freak!')
     
