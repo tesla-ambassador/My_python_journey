@@ -25,10 +25,11 @@ while '_' in display:
         lives -= 1
     if lives < 0:
         print('You have lost the game')
+        print(f'The word was ${chosen_word}')
         break
     message = ''.join(display)
     if message == chosen_word:
         print(f'The word is ${message}')
         print('Kudos, you have won the game!')
         break
-    print(f'This is the word so far ${message}')
+    print(f'This is the word so far ${message}')  
