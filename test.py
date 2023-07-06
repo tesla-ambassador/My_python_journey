@@ -38,29 +38,45 @@
 # greet_with_location(name= "Kevin", location= "London")
 
 # Learning about dictionaries.
-travel_log = {
-    "France": {
-        "cities_visited": ["Paris", "Lille", "Dijon"],
-        "total_visits": 12
-    },
-    "Germany": {
-        "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
-        "total_visits": 5
-    }
-}
+# travel_log = {
+#     "France": {
+#         "cities_visited": ["Paris", "Lille", "Dijon"],
+#         "total_visits": 12
+#     },
+#     "Germany": {
+#         "cities_visited": ["Berlin", "Hamburg", "Stuttgart"],
+#         "total_visits": 5
+#     }
+# }
 
 # for i in travel_log:
 #     new_val = travel_log.get(i)
 #     new_dic = dict(new_val)
 #     print(new_dic.get('cities_visited'))
     
-def add_new(country, cities_visited, total_visits):
-    new_dict = {}
-    new_dict[country] = {
-        'cities': cities_visited,
-        'visits': total_visits
-    }
-    travel_log.update(new_dict)
+# def add_new(country, cities_visited, total_visits):
+#     new_dict = {}
+#     new_dict[country] = {
+#         'cities': cities_visited,
+#         'visits': total_visits
+#     }
+#     travel_log.update(new_dict)
     
-add_new('UK', ['London', 'Birmingham', 'Manchester', 'Chelsea'], 50)
-print(travel_log)
+# add_new('UK', ['London', 'Birmingham', 'Manchester', 'Chelsea'], 50)
+# print(travel_log)
+
+# Day 10, Functions
+def format_name(f_name, l_name):
+    """_summary_
+
+    Args:
+        f_name (_type_): _description_
+        l_name (_type_): _description_
+
+    Returns:
+        _type_: _formated string in title case_
+    """
+    return f_name.capitalize() + '   ' + l_name.capitalize()
+
+name = format_name('kevin', 'mbawalla')
+print(name)
