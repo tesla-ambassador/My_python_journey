@@ -14,7 +14,6 @@ import random
 import os
 # Function to clear the console.
 clear = lambda: os.system('clear')
-
 print('Welcome to the guess_the_number game!')
 difficulty_level = input('Please choose your preffered difficulty level (Hard) or (Easy): ').lower()
 
