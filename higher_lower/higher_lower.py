@@ -13,6 +13,13 @@ from art import logo, vs
 import os
 clear = lambda: os.system('clear')
 
+# Function to compare the two elements.
+def get_winner(guess, element_1, element_2):
+    if element_1 > element_2:
+        return guess == 'a'
+    else:
+        return guess == 'b'
+
 final_score = 0
 still_playing = True
 comparisons = [data[random.randint(0, 49)]]
@@ -26,24 +33,14 @@ while still_playing:
     print(vs)
     print(f"Compare B: {comparisons[1]['name']}, a {comparisons[1]['description']} from {comparisons[1]['country']}")
     user_input = input("Who has more followers 'A' or 'B': ").lower()
-    if user_input == 'a':
-        if comparisons[0]['follower_count'] > comparisons[1]['follower_count']:
-            final_score += 1
-            comparisons.pop(0)
-            clear()
-        else:
-            still_playing = False
-            clear()
-            print(logo)
-            print(f'Sorry you lost with a final score of: {final_score}')
+    if get_winner(user_input, comparisons[0]['follower_count'], comparisons[1]['follower_count']):
+        final_score += 1
+        comparisons.pop(0)
+        clear()
     else:
-        if comparisons[1]['follower_count'] > comparisons[0]['follower_count']:
-            final_score += 1
-            comparisons.pop(0)
-            clear()
-        else:
-            still_playing = False
-            clear()
-            print(logo)
-            print(f'Sorry you lost with a final score of {final_score}')
+        still_playing = False
+        clear()
+        print(logo)
+        print(f'Sorry you lost, your final score is: {final_score}')
+        
                      
