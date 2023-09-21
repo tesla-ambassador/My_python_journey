@@ -27,17 +27,17 @@ while is_game_on:
     cobra.move()
     
     if cobra.head.distance(food) < 15:
-        score.update_score()
+        score.increase_score()
         cobra.grow()
         food.move_food()
     
     if cobra.head.xcor() > 280 or cobra.head.xcor() < -280 or cobra.head.ycor() > 290 or cobra.head.ycor() < -280:
-        score.game_over()
-        is_game_on = False
+        score.reset()
+        cobra.reset()
         
     for segment in cobra.segments[1:]:
         if cobra.head.distance(segment) < 10:
-            is_game_on = False
-            score.game_over()
+            score.reset()
+            cobra.reset()
 
 screen.exitonclick()
