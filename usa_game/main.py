@@ -18,15 +18,12 @@ df = pd.DataFrame(data)
 state_list = list(df['state'])
 score = 0
 correct_guesses = []
-missing_states = []
 
 while len(correct_guesses) < 50:
     time.sleep(0.1)
     answer_prompt = screen.textinput(title=f'Input State name: {score}/{len(state_list)} States Correct', prompt='Can you guess the State?').title()
     if answer_prompt == 'Exit':
-        for state in state_list:
-            if state not in correct_guesses:
-                missing_states.append(state)
+        missing_states = [state for state in state_list if state not in correct_guesses]
         missing_states_df = pd.DataFrame(missing_states)
         missing_states_df.to_csv('./usa_game/missing_states.csv')
         break
