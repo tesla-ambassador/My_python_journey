@@ -48,7 +48,7 @@ while is_game_on:
         
         if ball.distance(player_two.paddle) < 50:
             ball.bounce_x()
-            sleep_time -= 0.1
+            sleep_time += 0.1
             
         elif ball.xcor() < -350:
             score.r_point()

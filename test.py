@@ -66,17 +66,28 @@
 # print(travel_log)
 
 # Day 10, Functions
-def format_name(f_name, l_name):
-    """_summary_
+# def format_name(f_name, l_name):
+#     """_summary_
 
-    Args:
-        f_name (_type_): _description_
-        l_name (_type_): _description_
+#     Args:
+#         f_name (_type_): _description_
+#         l_name (_type_): _description_
 
-    Returns:
-        _type_: _formated string in title case_
-    """
-    return f_name.capitalize() + '   ' + l_name.capitalize()
+#     Returns:
+#         _type_: _formated string in title case_
+#     """
+#     return f_name.capitalize() + '   ' + l_name.capitalize()
 
-name = format_name('kevin', 'mbawalla')
-print(name)
+# name = format_name('kevin', 'mbawalla')
+# print(name)
+
+#Algorithm.
+# 1.
+
+minutes = int(input('Please enter the number of minutes: '))
+
+day = round(minutes / 1440)
+hours = round((minutes % 1440)/60)
+minutes_left = minutes % 60
+
+print(f'Output: {day} days: {hours} hours: {minutes_left} minutes')
