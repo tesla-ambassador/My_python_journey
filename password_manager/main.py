@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import messagebox
 from random import randint, choice, shuffle
 import pyperclip
+import json
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def gen_password():
@@ -27,15 +28,31 @@ def save_data():
     saved_email = email_input.get()
     saved_password = password_entry.get()
     
+    new_data = {
+        saved_website: {
+            "email": saved_email,
+            "password": saved_password
+        }
+    }
+    
     if len(saved_website) == 0 or len(saved_email) == 0 or len(saved_password )== 0:
         messagebox.showinfo(message="Hey!\nYou can't have empty fields")
     else:
-        is_agree = messagebox.askokcancel(title=f"{saved_website}", message=f"Do you agree that these are your details? \nEmail: {saved_email}\nPassword: {saved_password}")
-        if is_agree:
-            with open(file='password_manager/data.txt', mode='a') as file:
-                file.write(f'{saved_website} | {saved_email} | {saved_password}\n')
-                website_input.delete(0, END)
-                password_entry.delete(0, END)
+        try:
+            with open(file='password_manager/data.json', mode='r') as file:
+                data = json.load(file)
+                data.update(new_data)
+                
+        except FileNotFoundError:
+            with open(file='password_manager/data.json', mode='w') as file:
+                json.dump(new_data, file, indent=4)
+                
+        else:
+            with open(file='password_manager/data.json', mode='w') as file:
+                json.dump(data, file, indent=4)
+            
+        website_input.delete(0, END)
+        password_entry.delete(0, END)
         
 
 # ---------------------------- UI SETUP ------------------------------- #

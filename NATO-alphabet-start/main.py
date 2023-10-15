@@ -1,6 +1,15 @@
 import pandas as pd
 
-statement = input('Please input a word: ').upper()
+is_invalid = True
+while is_invalid:
+    try:
+        statement = input('Please input a word: ').upper()
+        if statement.isalpha() == False:
+            raise KeyError
+    except KeyError:
+        print('Please enter alphabetical letters only')
+    else:
+        is_invalid = False
 
 df = pd.read_csv('NATO-alphabet-start/nato_phonetic_alphabet.csv')
 name_dict = {row.letter:row.code for (index, row) in df.iterrows()}

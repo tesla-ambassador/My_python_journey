@@ -84,10 +84,38 @@
 #Algorithm.
 # 1.
 
-minutes = int(input('Please enter the number of minutes: '))
+# minutes = int(input('Please enter the number of minutes: '))
 
-day = round(minutes / 1440)
-hours = round((minutes % 1440)/60)
-minutes_left = minutes % 60
+# day = round(minutes / 1440)
+# hours = round((minutes % 1440)/60)
+# minutes_left = minutes % 60
 
-print(f'Output: {day} days: {hours} hours: {minutes_left} minutes')
+# print(f'Output: {day} days: {hours} hours: {minutes_left} minutes')
+# ]
+
+import cv2
+
+# Open the webcam (usually the default camera, index 0)
+cap = cv2.VideoCapture(0)
+
+# Check if the webcam is opened successfully
+if not cap.isOpened():
+    print("Error: Could not open webcam.")
+    exit()
+
+# Loop to continuously capture frames from the webcam
+while True:
+    # Read a frame from the webcam
+    ret, frame = cap.read()
+
+    # Display the frame
+    cv2.imshow('Webcam', frame)
+
+    # Break the loop if 'q' key is pressed
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Release the webcam and close the window
+cap.release()
+cv2.destroyAllWindows()
+
